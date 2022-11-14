@@ -14,13 +14,17 @@ const Main = () => {
     faizOrani = 1.79;
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const toplam = Math.round(tutar * Math.pow((100 + faizOrani) / 100, vade));
   const taksit = Math.round(toplam / vade) || 1;
 
   return (
     <div>
       <h1 className="text-center">Kredi Hesaplama Aracı</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="Kredi" className="form-label">
             Kredi
